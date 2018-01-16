@@ -3,7 +3,7 @@ import { Car } from '../models/car';
 @Injectable()
 export class CarService {
 
-
+newCar ={};
 private cars: Car[] =[
   {
         id: 1, 
@@ -40,6 +40,11 @@ private cars: Car[] =[
 
   public getCars()
   {
+    return this.cars;
+  }
+  public addCar(newCar)
+  {
+    this.cars.push(newCar);
     return this.cars;
   }
 }

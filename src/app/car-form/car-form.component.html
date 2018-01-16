@@ -1,4 +1,4 @@
-<form #carForm="ngForm" (ngSubmit)="submitCar(newCar)">
+<form #carForm="ngForm" (ngSubmit)="submitCar(newCar)" contactForm.reset()>
 
 <div class="form-group">
 
@@ -10,39 +10,54 @@
 
   <label>Model</label>
   <input type="text" name="model" [(ngModel)]="newCar.model"><br>
-  </div>
+
+</div>
+
 
 <div class="form-group">
+    <label>Year</label>
+    <input type="number" name="year" [(ngModel)]="newCar.year"><br>
+</div>
 
-  <label>Year</label>
-  <input type="number" name="year" [(ngModel)]="newCar.year"><br>
-  </div>
 
 <div class="form-group">
 
   <label>Max speed</label>
-  <input type="text" name="maxSpeed" [(ngModel)]="newCar.maxSpeed"><br>
-  </div>
+  <input type="number" name="maxSpeed" [(ngModel)]="newCar.maxSpeed"><br>
+</div>
 
-<div class="form-group">
+<div class="select">
 
   <label>Is automatic</label>
   <input type="checkbox" name="isAutomatic" [(ngModel)]="newCar.isAutomatic"><br>
-  </div>
+</div>
  
       
 
-<div class="form-group">
+<div class = "radio radio-info">
 
-  <label>Engine</label>
-  <input type="text" name="engine" [(ngModel)]="newCar.engine"><br>
-  </div>
+  <label>Engine:</label> <br>
+  <label>Diesel</label> 
+  <input name="options"  type="radio" value="diesel"  [(ngModel)]="newCar.engine" ><br/>
+  <label>Petrol</label> 
+  <input name="options"  type="radio" value="petrol"  [(ngModel)]="newCar.engine" ><br/>
+
+  <label>Electric</label> 
+  <input name="options"  type="radio" value="electric"  [(ngModel)]="newCar.engine" ><br/>
+  
+  <label>Hybrid</label> 
+  <input name="options"  type="radio" value="hybrid"  [(ngModel)]="newCar.engine" ><br/>
+
+</div>   
 
 <div class="form-group">
     
   <label>Number of doors</label>
-  <input type="text" name="numberOfDoors" [(ngModel)]="newCar.numberOfDoors"><br>
+  <input type="number" name="numberOfDoors" [(ngModel)]="newCar.numberOfDoors"><br>
   </div>
 
-
 </form>
+
+
+<button type="button" class="btn" routeLink="/cars">Add car</button>
+<button type="button" class="btn" (click)="contactForm.reset()">Reset</button>

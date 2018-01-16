@@ -11,7 +11,15 @@ export class CarFormComponent implements OnInit {
 
 
   private newCar: Car = new Car();
-  constructor() { }
+  years;
+  constructor() {
+
+    // for(let i=1990; i<=2018; i++)
+    // {
+    //   this.years.push(i);
+    //   return;
+    // }
+   }
 
  public submitCar (car: Car) {
     this.onSubmit.emit(car);
