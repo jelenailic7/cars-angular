@@ -1,0 +1,48 @@
+<form #carForm="ngForm" (ngSubmit)="submitCar(newCar)">
+
+<div class="form-group">
+
+  <label>Mark</label>  
+  <input type="text" name="mark" [(ngModel)]="newCar.mark"><br>
+  </div>
+
+<div class="form-group">
+
+  <label>Model</label>
+  <input type="text" name="model" [(ngModel)]="newCar.model"><br>
+  </div>
+
+<div class="form-group">
+
+  <label>Year</label>
+  <input type="number" name="year" [(ngModel)]="newCar.year"><br>
+  </div>
+
+<div class="form-group">
+
+  <label>Max speed</label>
+  <input type="text" name="maxSpeed" [(ngModel)]="newCar.maxSpeed"><br>
+  </div>
+
+<div class="form-group">
+
+  <label>Is automatic</label>
+  <input type="checkbox" name="isAutomatic" [(ngModel)]="newCar.isAutomatic"><br>
+  </div>
+ 
+      
+
+<div class="form-group">
+
+  <label>Engine</label>
+  <input type="text" name="engine" [(ngModel)]="newCar.engine"><br>
+  </div>
+
+<div class="form-group">
+    
+  <label>Number of doors</label>
+  <input type="text" name="numberOfDoors" [(ngModel)]="newCar.numberOfDoors"><br>
+  </div>
+
+
+</form>
