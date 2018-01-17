@@ -15,11 +15,7 @@ newCar: Car = new Car();
     this.cars = this.carService.getCars();
   }
   
-  submitCar(car: Car) {
-    
-     this.cars = this.carService.addCar(car);
-       
-      }
+
   ngOnInit() {
   }
 

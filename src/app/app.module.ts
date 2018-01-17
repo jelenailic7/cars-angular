@@ -4,11 +4,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 
+
 import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { LayoutComponent } from './layout/layout.component';
 import { CarService } from './service/car.service';
-import { CarFormComponent } from './car-form/car-form.component';
+import { CarFormComponent } from './cars/car-form/car-form.component';
 import { FormsModule } from '@angular/forms';
 
 

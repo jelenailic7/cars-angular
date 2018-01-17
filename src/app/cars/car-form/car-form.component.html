@@ -1,0 +1,59 @@
+<form #carForm="ngForm" (ngSubmit)="submitCar(newCar)" >
+
+<div class="form-group">
+
+  <label>Mark</label>  
+  <input type="text" name="mark" [(ngModel)]="newCar.mark" class="form-control"><br>
+  </div>
+
+<div class="form-group">
+
+  <label>Model</label>
+  <input type="text" name="model" [(ngModel)]="newCar.model" class="form-control"><br>
+
+</div>
+
+
+<div class="form-group">
+    <label>Year</label>
+    <input type="number" name="year" [(ngModel)]="newCar.year" class="form-control"><br>
+</div>
+
+
+<div class="form-group">
+
+  <label>Max speed</label>
+  <input type="number" name="maxSpeed" [(ngModel)]="newCar.maxSpeed" class="form-control"><br>
+</div>
+
+<div class="select">
+
+  <label>Is automatic</label>
+  <input type="checkbox" name="isAutomatic" [(ngModel)]="newCar.isAutomatic" class="form-control"><br>
+</div>
+ 
+      
+
+<div class = "radio radio-info">
+
+  <label>Engine:</label><br>
+  <input name="options"  type="radio" value="diesel"  [(ngModel)]="newCar.engine" >Diesel<br/>
+  <input name="options"  type="radio" value="petrol"  [(ngModel)]="newCar.engine" >Petrol<br/>
+
+  <input name="options"  type="radio" value="electric"  [(ngModel)]="newCar.engine" >Electric<br/>
+  
+  <input name="options"  type="radio" value="hybrid"  [(ngModel)]="newCar.engine" >Hybrid<br/>
+
+</div>   
+
+<div class="form-group">
+    
+  <label>Number of doors</label>
+  <input type="number" name="numberOfDoors" [(ngModel)]="newCar.numberOfDoors" class="form-control"><br>
+  </div>
+
+
+
+<button type="submit" class="btn" >Add car</button>
+<button type="button" class="btn">Reset</button>
+</form>

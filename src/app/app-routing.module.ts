@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CarsComponent } from './cars/cars.component';
 import { LayoutComponent } from './layout/layout.component';
-import { CarFormComponent } from './car-form/car-form.component';
+import { CarFormComponent } from './cars/car-form/car-form.component';
 
 
 
