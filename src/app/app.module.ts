@@ -11,6 +11,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { CarService } from './service/car.service';
 import { CarFormComponent } from './cars/car-form/car-form.component';
 import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
+
 
 
 
@@ -26,7 +28,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CustomFormsModule
+    
 
 
   ],

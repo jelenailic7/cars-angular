@@ -1,56 +1,92 @@
 <form #carForm="ngForm" (ngSubmit)="submitCar(newCar); carForm.reset() " >
 
 <div class="form-group">
-
   <label>Mark</label>  
-  <input type="text" name="mark" [(ngModel)]="newCar.mark" class="form-control"><br>
-  </div>
+  <input type="text" name="mark" [(ngModel)]="newCar.mark" class="form-control" #mark="ngModel" required minlength="2"><br>
+  <div *ngIf="mark.invalid && (mark.dirty)"
+  class="alert alert-danger">
+    <div *ngIf="mark.errors.required">
+        Mark is required.
+      </div>
+      <div *ngIf="mark.errors.minlength">
+      Mark must be at least 2 characters long.
+     </div>
+    </div>
+</div>
 
 <div class="form-group">
-
   <label>Model</label>
-  <input type="text" name="model" [(ngModel)]="newCar.model" class="form-control"><br>
-
+  <input type="text" name="model" [(ngModel)]="newCar.model" class="form-control"  #model="ngModel" required minlength="2"><br>
+    <div *ngIf="model.invalid && (model.dirty || model.touched)"
+    class="alert alert-danger">
+    <div *ngIf="model.errors.required">
+      Model is required.
+    </div>
+    <div *ngIf="model.errors.minlength">
+    Model must be at least 2 characters long.
+  </div>
+</div>
 </div>
 
 
 <div class="form-group">
     <label>Year</label>
-    <input type="number" name="year" [(ngModel)]="newCar.year" class="form-control"><br>
+    <input type="number" name="year" [(ngModel)]="newCar.year" class="form-control" #year="ngModel"  ><br>
+      <div *ngIf="year.invalid && (year.dirty || year.touched)"
+      class="alert alert-danger">
+      <div *ngIf="year.errors.required">
+        Year is required.
+    </div>
+  </div>
 </div>
 
 
 <div class="form-group">
-
   <label>Max speed</label>
-  <input type="number" name="maxSpeed" [(ngModel)]="newCar.maxSpeed" class="form-control"><br>
+  <input type="number" name="maxSpeed" [(ngModel)]="newCar.maxSpeed" class="form-control" #maxSpeed="ngModel" ><br>
+    <div *ngIf="maxSpeed.invalid && (maxSpeed.dirty || maxSpeed.touched)"
+    class="alert alert-danger">
+    <div *ngIf="maxSpeed.errors.required">
+      Max speed is required.
+    </div>
+  </div>
 </div>
 
 <div class="select">
-
   <label>Is automatic</label>
-  <input type="checkbox" name="isAutomatic" [(ngModel)]="newCar.isAutomatic" class="form-control"><br>
+  <input type="checkbox" name="isAutomatic" [(ngModel)]="newCar.isAutomatic" class="form-control" #year="ngModel" ><br>
+    <div *ngIf="isAutomatic.invalid && (isAutomatic.dirty || isAutomatic.touched)"
+    class="alert alert-danger">
+    <div *ngIf="isAutomatic.errors.required">
+      Max speed is required.
+    </div>
+  </div>
 </div>
- 
+
       
 
 <div class = "radio radio-info">
 
   <label>Engine:</label><br>
-  <input name="options"  type="radio" value="diesel"  [(ngModel)]="newCar.engine" >Diesel<br/>
-  <input name="options"  type="radio" value="petrol"  [(ngModel)]="newCar.engine" >Petrol<br/>
+  <input name="options"  type="radio" value="diesel"  [(ngModel)]="newCar.engine" #isAutomatic="ngModel">Diesel<br/>
+  <input name="options"  type="radio" value="petrol"  [(ngModel)]="newCar.engine" #isAutomatic="ngModel">Petrol<br/>
 
-  <input name="options"  type="radio" value="electric"  [(ngModel)]="newCar.engine" >Electric<br/>
+  <input name="options"  type="radio" value="electric"  [(ngModel)]="newCar.engine" #isAutomatic="ngModel">Electric<br/>
   
-  <input name="options"  type="radio" value="hybrid"  [(ngModel)]="newCar.engine" >Hybrid<br/>
+  <input name="options"  type="radio" value="hybrid"  [(ngModel)]="newCar.engine" #isAutomatic="ngModel">Hybrid<br/>
 
 </div>   
 
-<div class="form-group">
-    
+<div class="form-group"> 
   <label>Number of doors</label>
-  <input type="number" name="numberOfDoors" [(ngModel)]="newCar.numberOfDoors" class="form-control"><br>
+    <input type="number" name="numberOfDoors" [(ngModel)]="newCar.numberOfDoors" class="form-control" #numberOfDoors="ngModel" ><br>
+    <div *ngIf="numberOfDoors.invalid && (numberOfDoors.dirty || numberOfDoors.touched)"
+    class="alert alert-danger">
+    <div *ngIf="numberOfDoors.errors.required">
+      Max speed is required.
+    </div>
   </div>
+</div>>
 
 
 
