@@ -41,26 +41,10 @@
 </div>
 
 
-<div class="form-group">
-  <label>Max speed</label>
-  <input type="number" name="maxSpeed" [(ngModel)]="newCar.maxSpeed" class="form-control" #maxSpeed="ngModel" ><br>
-    <div *ngIf="maxSpeed.invalid && (maxSpeed.dirty || maxSpeed.touched)"
-    class="alert alert-danger">
-    <div *ngIf="maxSpeed.errors.required">
-      Max speed is required.
-    </div>
-  </div>
-</div>
 
 <div class="select">
   <label>Is automatic</label>
-  <input type="checkbox" name="isAutomatic" [(ngModel)]="newCar.isAutomatic" class="form-control" #year="ngModel" ><br>
-    <div *ngIf="isAutomatic.invalid && (isAutomatic.dirty || isAutomatic.touched)"
-    class="alert alert-danger">
-    <div *ngIf="isAutomatic.errors.required">
-      Max speed is required.
-    </div>
-  </div>
+  <input type="checkbox" name="isAutomatic" [(ngModel)]="newCar.isAutomatic" class="form-control" #isAutomatic="ngModel" ><br>
 </div>
 
       
@@ -75,18 +59,22 @@
   
   <input name="options"  type="radio" value="hybrid"  [(ngModel)]="newCar.engine" #isAutomatic="ngModel">Hybrid<br/>
 
-</div>   
+</div> 
 
-<div class="form-group"> 
+
+<div class="form-group" [formGroup]="newTaskForm">
+    <label>Max speed</label>
+    <input type="number" name="maxSpeed" [formControlName]="'speed'" required [(ngModel)]="newCar.maxSpeed" class="form-control" ><br>
+    <p *ngIf="!newTaskForm.controls.speed.valid && newTaskForm.controls.speed.touched">
+      Max speed must be beetwen 20 and 300. 
+      </p>
+
   <label>Number of doors</label>
-    <input type="number" name="numberOfDoors" [(ngModel)]="newCar.numberOfDoors" class="form-control" #numberOfDoors="ngModel" ><br>
-    <div *ngIf="numberOfDoors.invalid && (numberOfDoors.dirty || numberOfDoors.touched)"
-    class="alert alert-danger">
-    <div *ngIf="numberOfDoors.errors.required">
-      Max speed is required.
-    </div>
-  </div>
-</div>>
+    <input type="number" name="numberOfDoors" [formControlName]="'doors'" [(ngModel)]="newCar.numberOfDoors" class="form-control" ><br>
+    <p *ngIf="!newTaskForm.controls.doors.valid && newTaskForm.controls.doors.touched">
+        Number of doors must be between 2 and 5. 
+        </p>
+</div>
 
 
 

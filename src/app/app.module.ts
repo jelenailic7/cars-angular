@@ -12,6 +12,7 @@ import { CarService } from './service/car.service';
 import { CarFormComponent } from './cars/car-form/car-form.component';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -29,7 +30,8 @@ import { CustomFormsModule } from 'ng2-validation';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    ReactiveFormsModule
     
 
 
