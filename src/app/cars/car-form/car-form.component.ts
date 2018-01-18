@@ -25,6 +25,16 @@ export class CarFormComponent implements OnInit {
     
   }
 
+ public preview(){
+    alert(`
+    Mark: ${this.newCar.mark}, 
+    Model: ${this.newCar.model},
+    Year: ${this.newCar.year},
+    Engine: ${this.newCar.engine},
+
+    `);
+  }
+//observale start with $??
   ngOnInit() {
   }
 
