@@ -25,6 +25,7 @@ List of cars:<br>
       <td>{{ car.isAutomatic }}</td>
       <td>{{ car.engine }}</td>
       <td>{{ car.numberOfDoors }}</td>
+      <td><a  class="btn" [routerLink]="['/edit', car.id]">Edit</a></td>
       </tr>
       </tbody>
   </table>

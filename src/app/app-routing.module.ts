@@ -17,6 +17,7 @@ const appRoutes: Routes = [
     },
     { path:'cars', component: CarsComponent},
     { path:'add', component: CarFormComponent},
+    { path:'edit/:id', component: CarFormComponent}
 
 ];
     

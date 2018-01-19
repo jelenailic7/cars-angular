@@ -2,7 +2,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Car } from '../../models/car';
 import { CarService } from '../../service/car.service';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -16,9 +18,9 @@ export class CarFormComponent implements OnInit {
 
   public newCar:Car;
 
-  constructor(private carService: CarService,private router:Router)
+  constructor(private carService: CarService,private router:Router, private route: ActivatedRoute)
    {
-     this.newCar = new Car();
+     this.newCar = new Car({});
 
      this.newTaskForm = new FormGroup(
        {
@@ -31,13 +33,22 @@ export class CarFormComponent implements OnInit {
            this.validateNumberOfDoors()
          )
        });
+       this.route.params.subscribe(params =>{
+         if(params['id']){
+           this.newCar = this.carService.getById(+params['id']);
+         }
+       })
    }
 
  public submitCar (newCar) {
+   if(this.newCar.id){
+     this.carService.editCar(this.newCar);
+   }else {
    this.carService.addCar(this.newCar);
-   this.router.navigate(['/cars']);
-    
-  }
+   }
+   this.router.navigate(['/cars']);   
+  
+}
 
  public preview(){
     alert(`

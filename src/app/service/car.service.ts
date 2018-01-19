@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Car } from '../models/car';
 @Injectable()
 export class CarService {
+  
+private idCount = 1;
+
 
 private cars: Car[] =[
   {
@@ -43,7 +46,24 @@ private cars: Car[] =[
   }
   public addCar(newCar: Car)
   {
-    this.cars.push(newCar);
-    return this.cars;
+    this.cars.push(new Car({
+      id: this.idCount, 
+      ...newCar    
+    }));
+    this.idCount = this.idCount++;  
+  }
+
+  public getById(id: number) {
+    let car;
+    this.cars.forEach((c)=>{
+      if(c.id === id){
+        car = c;
+      }
+    });
+    return car;
+  }
+  public editCar(car)
+  {
+    this.cars.splice(this.cars.indexOf(car),1,car);
   }
 }
